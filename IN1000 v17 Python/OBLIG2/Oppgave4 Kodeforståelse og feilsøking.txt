@@ -1,0 +1,19 @@
+a = input("Tast inn et heltall!")
+b = int(a)
+if b < 10:
+    print(b + "Hei!")
+
+
+[sarime@carlton IN1000]$ python3 kodeforstaaelse.py
+Tast inn et heltall!2
+Traceback (most recent call last):
+  File "kodeforstaaelse.py", line 4, in <module>
+    print(b + "Hei!")
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+[sarime@carlton IN1000]$
+
+1) Nei dette er ikke lovlig kode. Fordi den er i linje 4 (print(b +"Hei!"))
+gir TypeError fordi i linje 4 der prøves å samle integer og string typer.
+den er ikke lov i python.
+2) det er ingen problemmer uten TypeError i linje 4. Utenfor den er lovlig kode.
+for eksempel vis linje4 endres "print(b)" eller "print(str(b) + "Hei!")" det skal kjøres uten problemer.
