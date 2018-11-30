@@ -1,0 +1,17 @@
+Oblig1
+
+Studentnavn: Mahmut Emrah Sari
+Student nummer :s306378
+
+Jeg leverer alene.
+jeg har ferdig med 6 oppgaver. 
+
+her er terminal utskriften
+
+////////////////////////////////////////////////////
+Oppgave 4: o) Tid: 1398. Metoden er for ineffektiv!
+              Hint: Bruk en partisjoneringsteknikk!
+Må forbedres! Du har minst 1 feil eller svakheter!
+
+Process finished with exit code 0
+//////////////////////////////////////////////////////

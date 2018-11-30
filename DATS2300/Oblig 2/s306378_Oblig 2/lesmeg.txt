@@ -1,0 +1,15 @@
+Navn: Mahmut Emrah Sari
+Nr: s306378
+
+
+Jeg har loest obliggen meg selv.
+
+Utskrift av terminalen:
+
+**************************************
+
+Gratulerer!! Du passerte testen!
+
+Process finished with exit code 0
+
+***************************************
