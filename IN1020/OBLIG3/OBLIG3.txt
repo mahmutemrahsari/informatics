@@ -1,0 +1,40 @@
+#Oppgave 1
+
+Nedlasting : 17.42 Mbps
+Opplasting : 0.90 Mbps
+
+datamengde (i megabit) / hastighet (i Mbps) = tid for å fullføre (i sekunder)
+
+3Mb / 0.90Mbps = 3.3 sekunder tar det å laste opp filen. 
+
+Her for å finne ut hvor lang tid det tar å laste opp filen 
+har jeg delt datamengden på Opplasting hastigheten.
+
+#Oppgave 2
+
+Direct travel times
+from Oslo to New York
+light in fiber 28 ms. 
+Der her denne verdien betyr at reisetiden for en data via lys over en fiber fra Oslo til New York.
+
+--- www.metopera.org ping statistics ---
+17 packets transmitted, 17 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 142.296/143.867/147.735/1.575 ms
+
+Hvordan er korrespondansen mellom den målte tiden og den teoretiske
+overføringstiden for lys i fiber?
+Den målte tiden er 143.867 ms og den teoriske overføringstiden for lys i fiber er 28 ms.
+
+Hvordan kan forskjellen forklares?
+
+RTT kan måles Distance + Transmission medium + Number of network hops + Traffic levels + Server response time
+
+Nord-Amerika    Houston	     8008km	136.51ms	
+Sør-Amerika     Brasili      9913km	248.19ms
+Afrika		Cape Town   10470km	171.34ms
+Asia		 Osaka       8347km	293.53ms
+Oseania         Sydney      15952km	323.10ms
+
+
+
+

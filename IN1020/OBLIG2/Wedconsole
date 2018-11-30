@@ -1,0 +1,154 @@
+Last login: Wed Oct  4 20:37:18 on console
+1x-193-157-193-5:~ emrah$ ssh  sarime@login.ifi.uio.no
+sarime@login.ifi.uio.no's password: 
+Last login: Wed Oct  4 17:53:30 2017 from 1x-193-157-193-5.uio.no
+Velkommen til vestur.ifi.uio.no.
+vestur er en maskin som skal fungere som felles ressurs for alle på IFI.
+Den egner seg ikke til simuleringer og tunge jobber. 
+Vær sparsom med ressurser og vis hensyn.
+Ved spørsmål: Kontakt drift@ifi.uio.no.
+---
+Welcome to vestur.ifi.uio.no.
+vestur is a shared machine for all IFI users.
+You should not run simulations and heavy jobs on this machine.
+Use resources sparingly and show consideration for other users.
+If you have questions, send email to drift@ifi.uio.no
+ 
+[sarime@vestur ~]$ scp sarime@login.ifi.uio.no:/ifi/bifrost/project5/in1020/oblig-2/sec.s .
+sarime@login.ifi.uio.no's password: 
+sec.s                                         100%  610   186.7KB/s   00:00    
+[sarime@vestur ~]$ scp sarime@login.ifi.uio.no:/ifi/bifrost/project5/in1020/oblig-2/test-sec.c .
+sarime@login.ifi.uio.no's password: 
+test-sec.c                                    100%  534   170.9KB/s   00:00    
+[sarime@vestur ~]$ ls
+chrome     Downloads  perl5     Public     test-sec.c  workspace
+Desktop    Music      Pictures  sec.s      Videos      www_docs
+Documents  pc         privat    Templates  WINDOWS
+[sarime@vestur ~]$ vim sec.s
+[sarime@vestur ~]$ vim sec.s
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ ./test-sec 
+   12 ==> 12:12:12 ==> 43932
+   65 ==> 65:65:65 ==> 237965
+ 3600 ==> 3600:3600:3600 ==> 13179600
+ 3750 ==> 3750:3750:3750 ==> 13728750
+36002 ==> 36002:36002:36002 ==> 131803322
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+sec.s: Assembler messages:
+sec.s:29: Error: bad register name `%3600'
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ ./test-sec 
+   12 ==> 00:12:12 ==>   732
+   65 ==> 00:65:65 ==>  3965
+ 3600 ==> 01:3600:3600 ==> 223200
+ 3750 ==> 01:3750:3750 ==> 232350
+36002 ==> 10:36002:36002 ==> 2232122
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ ./test-sec 
+   12 ==> 00:12:04 ==>   724
+   65 ==> 00:65:48 ==>  3948
+ 3600 ==> 01:3600:48 ==> 219648
+ 3750 ==> 01:3750:48 ==> 228648
+36002 ==> 10:36002:48 ==> 2196168
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ ./test-sec 
+   12 ==> 00:12:44 ==>   764
+   65 ==> 00:65:56 ==>  3956
+ 3600 ==> 01:3600:56 ==> 219656
+ 3750 ==> 01:3750:56 ==> 228656
+36002 ==> 10:36002:56 ==> 2196176
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ ./test-sec 
+   12 ==> 00:00:56 ==>    56
+   65 ==> 00:01:28 ==>    88
+ 3600 ==> 01:00:28 ==>  3628
+ 3750 ==> 01:02:28 ==>  3748
+36002 ==> 10:00:28 ==> 36028
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ ./test-sec 
+   12 ==> 00:00:12 ==>    24
+   65 ==> 00:01:05 ==>    70
+ 3600 ==> 01:00:00 ==>  3600
+ 3750 ==> 01:02:30 ==>  3780
+36002 ==> 10:00:02 ==> 36004
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ ./test-sec 
+   12 ==> 00:00:12 ==>    12
+   65 ==> 00:01:05 ==>     5
+ 3600 ==> 01:00:00 ==>     0
+ 3750 ==> 01:02:30 ==>    30
+36002 ==> 10:00:02 ==>     2
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ ./test-sec 
+   12 ==> 00:00:12 ==>    12
+   65 ==> 00:01:05 ==>     5
+ 3600 ==> 01:00:00 ==>     0
+ 3750 ==> 01:02:30 ==>    30
+36002 ==> 10:00:02 ==>     2
+[sarime@vestur ~]$ vim sec.s 
+[sarime@vestur ~]$ gcc -o test-sec test-sec.c sec.s
+[sarime@vestur ~]$ ./test-sec 
+   12 ==> 00:00:12 ==>    12
+   65 ==> 00:01:05 ==>    65
+ 3600 ==> 01:00:00 ==>  3600
+ 3750 ==> 01:02:30 ==>  3750
+36002 ==> 10:00:02 ==> 36002
+[sarime@vestur ~]$ vim sec.s 
+
+        .globl hms_to_sec
+# Omformer et klokkeslett (angitt i timer, minutter og sekunder) til
+# antall sekunder.
+
+hms_to_sec:
+
+        # Legg inn kode for funksjonen her:
+        movq    %RDI,%RAX
+        movq    %RSI,%RAX
+        movq    %RDX,%RAX
+
+        imulq   $3600,%RDI
+        imulq   $60,%RSI
+
+        movq    %RDI,%RAX
+        addq    %RSI,%RAX
+        addq    %RDX,%RAX
+        ret
+
+
+        .globl  sec_to_h
+# Gitt et tidspunkt (angitt som sekunder siden midnatt), finn timen.
+
+sec_to_h:
+
+        # Legg inn kode for funksjonen her:
+
+        movq    %RDI,%RAX
+        movq    $3600,%R8
+        cqo
+        idivq   %R8
+        ret
+
+
+        .globl  sec_to_s
+# Gitt et tidspunkt (angitt som sekunder siden midnatt), finn sekundet.
+
+sec_to_s:
+
+        # Legg inn kode for funksjonen her:
+
+        movq    %RDI,%RAX
+        movq    $60,%R9
+        cqo
+-- INSERT --                                                                                                             1,2-9         Top
