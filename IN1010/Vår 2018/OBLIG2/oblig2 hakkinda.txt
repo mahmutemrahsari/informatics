@@ -1,0 +1,27 @@
+abi resept classesi abstract olmasi lazim, cunku soyle yaziyor:
+Merk: Vi skal ikke kunne opprette en instans av selve klassen Resept
+
+public boolean bruk : Forsøker å bruke resepten én gang. Returner false om resepten
+alt er oppbrukt, ellers returnerer den true .
+● abstract public String farge : Returnerer reseptens farge. Enten “hvit” eller "blaa".
+● abstract public double prisAaBetale : Returnerer prisen pasienten må betale.
+
+bu metodlari yapacaksin reseptin icinde
+hvitresept extends resept olacak
+p-resept extends hvitresept olacak
+miletærresept extends hvitresept olacak
+
+blåresept extends resept olacak
+abstract public String farge :, hvitresept ve blåreseptte de ovverride olacak, 
+
+yani mesela hvit resept de return "hvit"
+blåreseptte "return blå"
+prisAaBetale metodu ise: militærresept, p-resepter ve blåresept de ovverride olacak.
+hepsinin kendine gøre fiyat indirimi var
+bruk metodo ise, resept de olacak ve sunu yapacak:
+if(this.reit>0){
+   reit--;
+   return true;
+} else {
+   return false
+}

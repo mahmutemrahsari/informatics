@@ -1,0 +1,5 @@
+--> Belirli bir baslangic yolu secilecek ve cikisi aranacak
+--> Beyaz rotalarda ilerleme olurken siyahlarda olmaz
+--> Eger ortak bir kenarlari varsa komsu rotalar olur
+--> Bir rotanin en fazla 4 komsu rotasi olabilir
+--> Beyaz komsu rotalarda ilerleyebiliriz
