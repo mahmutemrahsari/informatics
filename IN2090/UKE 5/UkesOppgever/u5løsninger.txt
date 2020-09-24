@@ -1,0 +1,188 @@
+-- 1)
+/*
+Hvor mange filmer i filmdatabasen er norske? (1 rad, 2245 verdi)
+*/
+
+SELECT COUNT(*) AS antallNorskeFilmer
+FROM Filmcountry
+WHERE country = 'Norway';
+
+/*
+ antallnorskefilmer
+--------------------
+               2245
+(1 row)
+*/
+
+/* 2
+Mange titler har vært brukt i flere filmer. Skriv ut en oversikt over
+titler som har vært brukt i mer enn 30 filmer. Bak hver tittel skriv
+antall ganger den er brukt. Ordne linjene med hyppigst forekommende
+tittel først.   (26 eller 18)
+*/
+
+SELECT f.title, count(*)
+FROM film f
+GROUP BY f.title
+HAVING count(*)>30
+ORDER BY count(*) DESC;
+-- OR
+SELECT f.title, count(*) AS antall
+FROM film f
+GROUP BY f.title
+HAVING count(*)>30
+ORDER BY antall DESC;
+
+-- 3
+--Vis alle genrene til filmen 'Pirates of the Caribbean: The Legend of Jack Sparrow'
+SELECT f.title, fg.genre
+FROM film f NATURAL JOIN filmgenre fg
+WHERE f.title = 'Pirates of the Caribbean: The Legend of Jack Sparrow';
+/*
+                        title                         |   genre
+------------------------------------------------------+-----------
+ Pirates of the Caribbean: The Legend of Jack Sparrow | Action
+ Pirates of the Caribbean: The Legend of Jack Sparrow | Adventure
+ Pirates of the Caribbean: The Legend of Jack Sparrow | Comedy
+ Pirates of the Caribbean: The Legend of Jack Sparrow | Drama
+ Pirates of the Caribbean: The Legend of Jack Sparrow | Thriller
+(5 rows)
+
+*/
+
+-- 4
+-- Finn de "Pirates of the Caribbean"-filmene som er med i flere enn 3 genre
+SELECT title, count(*) as antall_genre
+FROM film f NATURAL JOIN filmgenre fg
+WHERE f.title like 'Pirates of the Caribbean%'
+GROUP BY f.filmid, title
+HAVING count(*) > 3;
+
+/*
+                         title                          | antall_genre
+--------------------------------------------------------+--------------
+ Pirates of the Caribbean: Dead Man's Chest             |            4
+ Pirates of the Caribbean: The Curse of the Black Pearl |            4
+ Pirates of the Caribbean: At World's End               |            4
+ Pirates of the Caribbean: The Legend of Jack Sparrow   |            5
+(4 rows)
+
+*/
+
+-- 5
+/*
+Hvilke verdier (fornavn) forekommer hyppigst i firstname-attributtet i tabellen Person?
+Finn alle fornavn, og sorter fallende etter antall forekomster. Ikke tell med forekomster
+der fornavn-verdien er tom. Begrens gjerne antall rader. (176030 rader, 16108 for flest
+fornavn)
+*/ 
+SELECT p.firstname, COUNT(*) AS sammeFornavn
+FROM Person p
+WHERE p.firstname <> ''
+GROUP BY p.firstname
+ORDER BY count(*) DESC
+LIMIT 20;
+
+/*                   firstname                     | sammefornavn
+---------------------------------------------------+--------------
+ John                                              |        16108
+ David                                             |        15009
+ Michael                                           |        14184
+ Robert                                            |        10020
+.....
+*/
+
+-- 6
+--Alle genrer for filmen med filmid 985057
+SELECT * from film NATURAL JOIN filmgenre where filmid = 985057;
+/*
+ filmid |  title  | prodyear |   genre
+--------+---------+----------+-----------
+ 985057 | Matilda |     1996 | Action
+ 985057 | Matilda |     1996 | Adventure
+ 985057 | Matilda |     1996 | Comedy
+ 985057 | Matilda |     1996 | Crime
+ 985057 | Matilda |     1996 | Drama
+ 985057 | Matilda |     1996 | Family
+ 985057 | Matilda |     1996 | Fantasy
+ 985057 | Matilda |     1996 | Mystery
+ 985057 | Matilda |     1996 | Thriller
+(9 rows)
+*/
+
+-- 7
+/*Finn filmene som er med i flest genrer: Skriv ut filmid, tittel og antall genre,
+og sorter fallende etter antall genre. Du kan begrense resultatet til 25 rader.*/
+SELECT filmid, title, count(*)
+FROM film NATURAL JOIN filmgenre
+GROUP BY filmid, title
+ORDER BY count(*) DESC
+LIMIT 25;
+
+-- 8
+/*
+Lag en oversikt over regissører som har regissert mer enn 5 norske filmer. (60)
+*/ 
+
+SELECT lastname || ', ' || firstname AS navn
+FROM Filmcountry
+  NATURAL JOIN Film
+  NATURAL JOIN Filmparticipation
+  NATURAL JOIN Person
+WHERE country = 'Norway'
+  AND parttype = 'director'
+GROUP BY lastname, firstname
+HAVING COUNT(*) > 5;
+
+/*
+            navn
+-----------------------------
+ Andersen, Knut
+ Sandø, Toralf
+ Holst, Marius
+ Heggedal, Jon
+ Breien, Anja
+ Vennerød, Petter
+ ...
+ (60 rows)
+*/
+
+-- 9
+/*Skriv ut serieid, serietittel og produksjonsår for TV-serier, sortert fallende
+etter produksjonsår. Begrens resultatet til 50 filmer. Tips: Ikke ta med serier
+der produksjonsåret er null.*/
+SELECT s.seriesid, maintitle, firstprodyear
+FROM series s
+WHERE firstprodyear is not null
+ORDER BY firstprodyear DESC
+LIMIT 50;
+/*
+ seriesid |          maintitle           | firstprodyear
+----------+------------------------------+---------------
+    87425 | Saka no ue no kumo           |          2009
+  2177832 | Last Horseman, The           |          2009
+    78907 | Pacific War, The             |          2009
+  7980888 | Pacific, The                 |          2009
+  7332328 | Untitled Star Wars TV Series |          2009
+...
+*/
+
+-- 10
+/*Skriv ut serietittel, produksjonsår og antall episoder for de 15 eldste
+TV-seriene i filmdatabasen (sortert stigende etter produksjonsår). Husk å også
+få med filmer der antall episoder er 0 */
+SELECT s.seriesid, maintitle, firstprodyear, count(e.episodeid)
+FROM series s LEFT OUTER JOIN episode e ON s.seriesid=e.seriesid
+GROUP BY s.seriesid, maintitle, firstprodyear
+ORDER BY firstprodyear ASC
+LIMIT 15;
+/*
+ seriesid |               maintitle               | firstprodyear | count
+----------+---------------------------------------+---------------+-------
+ 14617098 | Television Ghost, The                 |          1931 |     0
+ 14320602 | Starlight                             |          1936 |     9
+   685463 | Picture Page                          |          1936 |     3
+  8573818 | Berlin 1936: Games of the XI Olympiad |          1936 |     0
+ 14661946 | Theatre Parade                        |          1936 |     4
+....
+*/
