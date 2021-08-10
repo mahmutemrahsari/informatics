@@ -1,4 +1,7 @@
 
+//An abstract class is a class that is declared abstract—it may or may not include abstract methods. 
+//Abstract classes cannot be instantiated, but they can be subclassed.
+
 
 public abstract class Rute {
     final int x;
